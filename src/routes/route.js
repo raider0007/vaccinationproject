@@ -1,9 +1,15 @@
-const express = require('express');
-const Router = express.Router();
+const express=require("express")
+const router=express.Router()
+const {registerUser,loginUser,getUsers,checkAvailableDates,checkAvailableTiming,vaccineRegistration}=require("../controller/userController")
+const {vaccineSlot}=require("../controller/vaccineController")
+const {authentication,authorisation}=require("../controller/auth")
 
-const usercontroller = require("../controllers/userControllers")
+router.post("/register",registerUser)
+router.post("/login",loginUser)
+router.post("/vaccineSlotes",vaccineSlot)
+router.get("/getUsers",getUsers)
+router.get("/checkAvailableDates",checkAvailableDates)
+router.get("/checkAvailableTiming",checkAvailableTiming)
+router.put("/vaccineRegistration/:userId",authentication,authorisation,vaccineRegistration)
 
-
-
-//--------------------------------ti-----------
-Router.post("/user",usercontroller.createUser)
+module.exports=router

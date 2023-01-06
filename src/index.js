@@ -6,8 +6,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+`mongoose.set('strictQuery', false);`
+//`mongoose.set('strictQuery', true);`
 mongoose.connect("mongodb+srv://Project_1:Xr1m54ZBz5hgLJbP@cluster0.wttupro.mongodb.net/VaccinationProject", {
     useNewUrlParser: true
 })
